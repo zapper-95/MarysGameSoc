@@ -1,0 +1,71 @@
+h1{
+    color: #5F5F5F;
+    padding-bottom: 40px;
+    padding-top: 29px;
+    word-spacing: 2vw;
+    letter-spacing: 1vw;
+    text-shadow: 0px 0px;
+    font-size: 75px;
+}
+h2{
+    color: #646464;
+    padding-bottom: 20px;
+    padding-top: 36px;
+    word-spacing: 2vw;
+    letter-spacing: 1vw;
+    text-shadow: 0px 0px;
+    font-size: 46px;
+}
+.contenttext {
+    color: #515151;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.parallax{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("Williamson.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 24px;
+    text-shadow: -2px 0px #FF0004;
+    font-style: italic;
+    font-size: 10vw;
+}
+.banner{
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(270deg,rgba(67,133,227,1.00) 0%,rgba(44,118,225,1.00) 37.31%,rgba(25,89,167,1.00) 56.99%,rgba(52,151,253,1.00) 78.76%);
+    background-image: -moz-linear-gradient(270deg,rgba(67,133,227,1.00) 0%,rgba(44,118,225,1.00) 37.31%,rgba(25,89,167,1.00) 56.99%,rgba(52,151,253,1.00) 78.76%);
+    background-image: -o-linear-gradient(270deg,rgba(67,133,227,1.00) 0%,rgba(44,118,225,1.00) 37.31%,rgba(25,89,167,1.00) 56.99%,rgba(52,151,253,1.00) 78.76%);
+    background-image: linear-gradient(180deg,rgba(67,133,227,1.00) 0%,rgba(44,118,225,1.00) 37.31%,rgba(25,89,167,1.00) 56.99%,rgba(52,151,253,1.00) 78.76%);
+    font-style: italic;
+    margin-top: -19px;
+    font-size: 35px;
+    padding-top: 8px;
+}
+/*coutesey of https://www.w3schools.com/howto/howto_css_social_media_buttons.asp*/
+.fa {
+    padding-down: 50px;
+    width: 57px;
+	float: left;
+	padding-right: 5px;
+    margin-right: 1%;
+    margin-left: 8%;
+}
+
+.navbar-brand
+{
+    font-size: 30px;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+.nav-item{
+    font-size: 30px;
+    margin-left: 17vw;
+}
