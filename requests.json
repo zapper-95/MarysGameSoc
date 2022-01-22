@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Avalon",
+        "submittedby": "James",
+        "date": "19/01/2022",
+        "HasaCopy": true
+    },
+    {
+        "name": "Dixit",
+        "submittedby": "Ryan",
+        "date": "12/01/2022",
+        "HasaCopy": false
+    },
+    {
+        "name": "Saboteur Gold",
+        "submittedby": "Ryan",
+        "date": "23/11/2021",
+        "HasaCopy": true
+    },
+    {
+        "name": "Terraforming Mars",
+        "submittedby": "Lucy",
+        "date": "4/11/2021",
+        "HasaCopy": true
+    }
+
+]
