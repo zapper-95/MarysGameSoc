@@ -6,6 +6,7 @@ h1{
     letter-spacing: 1vw;
     text-shadow: 0px 0px;
     font-size: 75px;
+    text-transform: uppercase;
 }
 h2{
     color: #646464;
@@ -15,6 +16,7 @@ h2{
     letter-spacing: 1vw;
     text-shadow: 0px 0px;
     font-size: 46px;
+    text-transform: uppercase;
 }
 .contenttext {
     color: #515151;
