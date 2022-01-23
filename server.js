@@ -37,7 +37,7 @@ app.get('/game/details', function (req, resp){
 		}
 	}
   
-  resp.send("");
+  //resp.send("");
 });
 
 app.listen(8090);
