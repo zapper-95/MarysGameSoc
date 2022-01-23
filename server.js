@@ -15,20 +15,29 @@ app.get('/game/request', function (req, resp){
   let results = [];
 	if(search != ""){
 		for (let i = 0; i < requests.length; i++) {
-    let request = requests[i];
-    if (request.name.toUpperCase().includes(search)) {
-      results.push(request);
-    }
-  }		
+    		let request = requests[i];
+    		if (request.name.toUpperCase().includes(search)) {
+      			results.push(request);
+    		}
+  		}		
 		
 	}
 
   resp.send(results);
-	
-	
-	
-	
-    //resp.json(requests);
+});
+
+
+app.get('/game/details', function (req, resp){
+	const search = req.query.game.toUpperCase();
+	let results = [];
+	for (let i = 0; i < requests.length; i++) {
+		let request = requests[i]
+		if (request.name.toUpperCase() == search) {
+			resp.send(request)
+		}
+	}
+  
+  resp.send("");
 });
 
 app.listen(8090);
