@@ -19,3 +19,12 @@ const gf = document.getElementById("game_request_form")
       alert(e);
     }
   });
+
+
+
+//code adapted from https://stackoverflow.com/questions/58157653/event-listener-for-when-child-of-parent-is-clicked
+document.getElementById("request_content").addEventListener('click', function(e) {
+  if (e.target !== this && this.contains(e.target)) {    
+    console.log(e.target.outerText);  
+  }
+});
