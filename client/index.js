@@ -51,7 +51,8 @@ document.getElementById("submit_game_request").addEventListener('click', async f
 		console.log(gamename)
 		console.log(submittedby)
 		console.log(HasaCopy)
-	    let response = await fetch('http://127.0.0.1:8090/game/new', 
+	try{
+		let response = await fetch('http://127.0.0.1:8090/game/new', 
     {
         method: 'post',
         headers: {
@@ -64,7 +65,20 @@ document.getElementById("submit_game_request").addEventListener('click', async f
 
     })
     let jsonContent = await response.json();
+	//resets all of the forms and checkboxes
+	document.getElementById("name").value = "";
+	document.getElementById("game_request").value = "";
+	document.getElementById("flexCheckDefault").checked = false;
+			
     alert(jsonContent);
+		
+				
+		
+		
+	} catch(e){
+		alert(e)
+	}
+	    
 	
 	
 });	

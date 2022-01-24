@@ -1,4 +1,5 @@
 const express = require('express');
+const fs  = require('fs');
 const app = express();
 
 app.use(express.static('client'));
@@ -67,6 +68,11 @@ app.post('/game/new', (req, resp) => {
 							'date': fulldate,
 							'HasaCopy': HasaCopy };
 		requests.push(gamerequest);
+		
+
+		fs.writeFileSync('./requests.json', JSON.stringify(requests));
+		
+		
 		resp.json("Request Successfully Recieved!")	
 			
 	}
