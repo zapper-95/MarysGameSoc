@@ -7,7 +7,7 @@ app.use(express.json());
 
 
 const requests = require("./requests.json");
-
+const reviews = require("./requests.json");
 
 app.get('/game/request', function (req, resp){
   const search = req.query.game_request.toUpperCase();
@@ -28,15 +28,12 @@ app.get('/game/request', function (req, resp){
 
 app.get('/game/details', function (req, resp){
 	const search = req.query.game.toUpperCase();
-	let results = [];
 	for (let i = 0; i < requests.length; i++) {
 		let request = requests[i]
 		if (request.name.toUpperCase() == search) {
 			resp.send(request)
 		}
 	}
-  
-  //resp.send("");
 });
 
 
@@ -84,7 +81,9 @@ app.post('/game/new', (req, resp) => {
 		
 	
 	
-})
+});
+
+
 
 
 app.listen(8090);
