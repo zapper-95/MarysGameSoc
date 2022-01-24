@@ -39,10 +39,29 @@ app.get('/game/details', function (req, resp){
 });
 
 
-app.post('/game/new', (req, res) => {
-  
-	console.log(req.body)
-	res.send(req.body)   // send back the posted data
+app.post('/game/new', (req, resp) => {
+	let date = new Date();
+	
+	// code for getting the date https://stackabuse.com/how-to-get-the-current-date-in-javascript/
+	const fulldate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
+
+	const submittedby = req.body.submittedby;
+	const HasaCopy = req.body.HasaCopy;
+	
+	
+	
+	const name = req.body.name;
+	
+
+		
+		
+	
+	const gamerequest = { 'name': name,
+                  		'submittedby': submittedby,
+                  		'date': fulldate,
+                  		'HasaCopy': HasaCopy };
+	requests.push(gamerequest);
+	resp.json("hi")
 })
 
 

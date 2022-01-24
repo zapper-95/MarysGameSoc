@@ -64,7 +64,7 @@ document.getElementById("submit_game_request").addEventListener('click', async f
 
     })
     let jsonContent = await response.json();
-    
+    alert(jsonContent);
 	
 	
 });	
