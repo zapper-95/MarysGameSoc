@@ -52,16 +52,32 @@ app.post('/game/new', (req, resp) => {
 	
 	const name = req.body.name;
 	
-
+	var gameAlreadyRequested = false;
+	
+	for (let i = 0; i < requests.length; i++) {
+		let request = requests[i]
+		if (request.name.toUpperCase() == name.toUpperCase()) {
+			gameAlreadyRequested = true;
+		}
+	}
+	
+	if(!gameAlreadyRequested){
+		const gamerequest = { 'name': name,
+							'submittedby': submittedby,
+							'date': fulldate,
+							'HasaCopy': HasaCopy };
+		requests.push(gamerequest);
+		resp.json("Request Successfully Recieved!")	
+			
+	}
+	else{
+		resp.json("Game Already Requested!")	
+		
+	}
 		
 		
 	
-	const gamerequest = { 'name': name,
-                  		'submittedby': submittedby,
-                  		'date': fulldate,
-                  		'HasaCopy': HasaCopy };
-	requests.push(gamerequest);
-	resp.json("hi")
+	
 })
 
 
