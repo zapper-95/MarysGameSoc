@@ -6,8 +6,6 @@ app.use(express.json());
 
 
 const requests = require("./requests.json");
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.get('/game/request', function (req, resp){
@@ -39,5 +37,13 @@ app.get('/game/details', function (req, resp){
   
   //resp.send("");
 });
+
+
+app.post('/game/new', (req, res) => {
+  
+	console.log(req.body)
+	res.send(req.body)   // send back the posted data
+})
+
 
 app.listen(8090);
