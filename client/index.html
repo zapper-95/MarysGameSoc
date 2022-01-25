@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang = "en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <meta charset="utf-8">
@@ -7,6 +7,7 @@
 <title>Mary's Game Society</title>
 <script src="index.js" defer></script>
 <script src="pages.js" defer></script>
+<script src="navbar.js" defer></script>
 </head>
 
 <body>
@@ -32,10 +33,11 @@
 		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   		<a class="navbar-brand" href="#">Pages</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
   		</button>
   		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			
     	<div class="navbar-nav">
 			
       		<a class="nav-item nav-link" href="#" id  = "homenav">Home <span class="sr-only">(current)</span></a>
@@ -114,11 +116,12 @@
 		<h3>Make a Game Request:</h3>
 
 		<form id="name_form_request">
-		  <label>Name</label><input id="requester_name" name="requester_name"></input>
+		  <label>Name</label>
+		  <input id="requester_name" name="requester_name">
 		</form>
 
 		<form id="game_request_form">
-		  <label for="game_request">Game</label><input id="game_request" name="game_request"></input>		  
+		  <label for="game_request">Game</label><input id="game_request" name="game_request">		  
 		</form>
 		<div id = "request_content">
 			<ul id = "request_content_list"></ul>
@@ -130,7 +133,7 @@
 			Have a copy?
 	  	</label>
 		</div>
-			<p><input type='submit' id = "submit_game_request"></input></p>
+			<p><input type='submit' id = "submit_game_request"></p>
 
 		
 		</div>
@@ -149,29 +152,29 @@
 		<h3>Make a Review:</h3>
 		
 		<form id="name_form_review">
-		  <label>Name</label><input id="reviewer_name" name="reviewer_name"></input>
+		  <label>Name</label><input id="reviewer_name" name="reviewer_name">
 		</form>
 
 		<form id="game_review_form">
-		  <label for="game_review">Game</label><input id="game_review" name="game_review"></input>		  
+		  <label for="game_review">Game</label><input id="game_review" name="game_review">		  
 		</form>
 
 		<form id="game_rating_form">
-		  <label for="game_rating">Rating out of 10</label><input id="game_rating" name="game_rating"></input>		  
+		  <label for="game_rating">Rating out of 10</label><input id="game_rating" name="game_rating">	  
 		</form>
 		
 		<div class="form-group">
-  			<label for="comment">Comment:</label>
+  			<label for="review_comment">Comment:</label>
   			<textarea class="form-control" rows="5" id="review_comment"></textarea>
 		</div>
-		<p><input type='submit' id = "submit_game_review"></input></p>
+		<p><input type='submit' id = "submit_game_review"></p>
 
 		</div>
 
 	<div class = "jumbotron">
 		<h3>Search Reviews:</h3>
 		<form id="search_game_review_form">
-		  <label for="search_game_review">Game</label><input id="search_game_review" name="search_game_review"></input>		  
+		  <label for="search_game_review">Game</label><input id="search_game_review" name="search_game_review">		  
 		</form>
 		<div id = "review_content">
 			<ul id = "review_content_list"></ul>
