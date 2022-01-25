@@ -42,7 +42,6 @@ document.getElementById("request_content").addEventListener('click', async funct
 	let lis = "";  
 	try{
 		const id = event.target.innerText;
-		console.log(id);
 		
 		const response = await fetch('http://127.0.0.1:8090/game/details?game='+id);		
 		let game = await response.json();
@@ -84,7 +83,6 @@ document.getElementById("review_content").addEventListener('click', async functi
 	let lis = "";  
 	try{
 		const id = event.target.outerText;
-		console.log(id);
 		const response = await fetch('http://127.0.0.1:8090/review/details?review='+id);		
 		let review = await response.json();
 		
@@ -92,8 +90,6 @@ document.getElementById("review_content").addEventListener('click', async functi
 		let request = await related_entity_response.json();
 		//const related_entity_response = await fetch('http://127.0.0.1:8090/game/reviews?game_review='+id);
 		//let reviews = await related_entity_response.json();
-		console.log(request);
-		console.log(review);
 		lis += id;
 		
 		lis += `<h3>Rating: ${review.rating}/10</h3>`;
@@ -101,7 +97,6 @@ document.getElementById("review_content").addEventListener('click', async functi
 		lis += `<h3>Comment: ${review.comment}</h3>`
 		lis += `<h4>Game Requested by: ${request[0].submittedby}</h4>`
 		lis += `<h4>Request Submitted on: ${request[0].date}</h4>`
-		console.log(review.gameID);
 
 		
 		document.getElementById(`${review.gameID}${review.submittedby}lis`).innerHTML = lis;
@@ -119,9 +114,7 @@ document.getElementById("submit_game_request").addEventListener('click', async f
 		let gamename = document.getElementById("game_request").value;
 		let submittedby = document.getElementById("requester_name").value;
 	    let HasaCopy = document.getElementById("flexCheckDefault").checked;
-		console.log(gamename)
-		console.log(submittedby)
-		console.log(HasaCopy)
+
 	try{
 		let response = await fetch('http://127.0.0.1:8090/game/new', 
     {
@@ -159,9 +152,7 @@ document.getElementById("submit_game_review").addEventListener('click', async fu
 		let submittedby = document.getElementById("reviewer_name").value;
 	    let rating = document.getElementById("game_rating").value;
 		let comment = document.getElementById("review_comment").value;
-		console.log(gamename)
-		console.log(submittedby)
-		console.log(rating)
+
 	try{
 		let response = await fetch('http://127.0.0.1:8090/review/new', 
     {
