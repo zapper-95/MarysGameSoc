@@ -10,13 +10,16 @@ const requests = require('./requests.json');
 const reviews = require('./reviews.json');
 
 app.get('/game/request', function (req, resp) {
+	if (req.query.game_request === undefined) {
+		resp.status(400).json('Required Parameters Missing');
+	}
   const search = req.query.game_request.toUpperCase();
   const results = [];
   if (search !== '') {
 	for (let i = 0; i < requests.length; i++) {
 		const request = requests[i];
 		if (request.gameID.toUpperCase().includes(search)) {
-			results.push(request);
+			results.push(request.gameID);
     }
 	}
 }
@@ -25,6 +28,9 @@ app.get('/game/request', function (req, resp) {
 });
 
 app.get('/game/details', function (req, resp) {
+	if (req.query.game === undefined) {
+		resp.status(400).json('Required Parameters Missing');
+	}
 	const search = req.query.game.toUpperCase();
 	let foundGame = false;
 	for (let i = 0; i < requests.length; i++) {
@@ -72,18 +78,21 @@ app.post('/game/new', (req, resp) => {
 
 		resp.json('Request Successfully Recieved!');
 	} else {
-		resp.json('Game Already Requested!');
+		resp.status(400).json('Game Already Requested!');
 	}
 });
 
 app.get('/game/reviews', function (req, resp) {
-  const search = req.query.game_review.toUpperCase();
+	if (req.query.game_review === undefined) {
+		resp.status(400).json('Required Parameters Missing');
+	}
+	const search = req.query.game_review.toUpperCase();
   const results = [];
 	if (search !== '') {
 		for (let i = 0; i < reviews.length; i++) {
 			const review = reviews[i];
 			if (review.gameID.toUpperCase().includes(search)) {
-				results.push(review);
+				results.push(review.gameID + ' by ' + review.submittedby);
 			}
 		}
 	}
@@ -92,6 +101,9 @@ app.get('/game/reviews', function (req, resp) {
 });
 
 app.get('/review/details', function (req, resp) {
+	if (req.query.review === undefined) {
+		resp.status(400).json('Required Parameters Missing');
+	}
 	let foundReview = false;
 	const search = req.query.review.toUpperCase();
 	for (let i = 0; i < reviews.length; i++) {
@@ -119,9 +131,9 @@ app.post('/review/new', (req, resp) => {
 		}
 	}
 	if (isNaN(parseInt(req.body.rating)) || parseInt(req.body.rating) < 1 || parseInt(req.body.rating) > 10) {
-		resp.json('Rating is not a number in the range 1 to 10');
+		resp.status(400).json('Rating is not a number in the range 1 to 10');
 	} else if (!reviewIsForRequest) {
-			resp.json('Unfortunatley that game has not been requested yet to play so it cannot have a review');
+			resp.status(400).json('Unfortunately that game has not been requested yet to play so it cannot have a review');
 			} else {
 		const comment = req.body.comment;
 

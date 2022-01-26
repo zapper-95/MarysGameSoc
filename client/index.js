@@ -11,7 +11,7 @@ let lis = '';
 		const requests = await response.json();
 		for (let i = 0; i < requests.length; i++) {
 			const request = requests[i];
-			lis += `<li class="list-group-item" id = "${request.gameID}lis">${request.gameID}`;
+			lis += `<li class="list-group-item" id = "${request}lis">${request}`;
     }
       document.getElementById('request_content').innerHTML = lis;
     } catch (e) {
@@ -28,7 +28,7 @@ let lis = '';
       const reviews = await response.json();
       for (let i = 0; i < reviews.length; i++) {
 const review = reviews[i];
-lis += `<li class="list-group-item" id = "${review.gameID}${review.submittedby}lis">${review.gameID} by ${review.submittedby}`;
+lis += `<li class="list-group-item" id = "${review}lis">${review}`;
     }
       document.getElementById('review_content').innerHTML = lis;
     } catch (e) {
@@ -53,17 +53,8 @@ document.getElementById('request_content').addEventListener('click', async funct
 		lis += `<h3>Submitted By: ${game.submittedby}</h3>`;
 		lis += `<h3>Date: ${game.date}</h3>`;
 		lis += `<h3>Has a copy: ${game.HasaCopy}</h3>`;
-
-		let averageRating = 0;
-		for (let i = 0; i < reviews.length; i++) {
-			averageRating += reviews[i].rating;
-		}
-		averageRating = Math.round((averageRating * 10) / reviews.length) / 10;
-
-		if (reviews.length > 0) {
-			lis += `<h3>Average rating: ${averageRating}</h3>`;
-		} else {
-			lis += '<h3>Average rating: Unrated</h3>';
+		for (let i = 0; i < reviews.length; i++){
+			lis += `<h4>${reviews[i].replace(id , "Review Submitted")}</h4>`;
 		}
 
 		document.getElementById(`${id}lis`).innerHTML = lis;
@@ -81,19 +72,17 @@ document.getElementById('review_content').addEventListener('click', async functi
 		const response = await fetch('http://127.0.0.1:8090/review/details?review=' + id);
 		const review = await response.json();
 
-		const relatedEntityResponse = await fetch('http://127.0.0.1:8090/game/request?game_request=' + review.gameID);
+		const relatedEntityResponse = await fetch('http://127.0.0.1:8090/game/details?game=' + review.gameID);
 		const request = await relatedEntityResponse.json();
-		// const related_entity_response = await fetch('http://127.0.0.1:8090/game/reviews?game_review='+id);
-		// let reviews = await related_entity_response.json();
 		lis += id;
 
 		lis += `<h3>Rating: ${review.rating}/10</h3>`;
 
 		lis += `<h3>Comment: ${review.comment}</h3>`;
-		lis += `<h4>Game Requested by: ${request[0].submittedby}</h4>`;
-		lis += `<h4>Request Submitted on: ${request[0].date}</h4>`;
+		lis += `<h4>Game Requested by: ${request.submittedby}</h4>`;
+		lis += `<h4>Request Submitted on: ${request.date}</h4>`;
 
-		document.getElementById(`${review.gameID}${review.submittedby}lis`).innerHTML = lis;
+		document.getElementById(`${review.gameID} by ${review.submittedby}lis`).innerHTML = lis;
 	} catch (e) {
 		alert(e);
 	}
